@@ -72,6 +72,7 @@
                         <TextField layoutX="125.0" layoutY="181.0" />
                         <RadioButton layoutX="49.0" layoutY="214.0" mnemonicParsing="false" text="Guest" />
                         <RadioButton layoutX="169.0" layoutY="214.0" mnemonicParsing="false" text="Not Guest" />
+                        <Button layoutX="77.0" layoutY="232.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="49.0" text="Add" />
                      </children></AnchorPane>
                 
             </content>
