@@ -35,7 +35,6 @@
                         <DatePicker layoutX="121.0" layoutY="87.0" prefHeight="14.0" prefWidth="168.0" />
                         <TextField layoutX="125.0" layoutY="18.0" />
                         <TextField layoutX="125.0" layoutY="53.0" />
-                        <ChoiceBox layoutX="130.0" layoutY="122.0" prefWidth="150.0" />
                         <Label layoutX="18.0" layoutY="159.0" prefHeight="14.0" prefWidth="65.0" text="Membership Type">
                            <font>
                               <Font size="8.0" />
@@ -57,6 +56,7 @@
                            </font></RadioButton>
                         <Button layoutX="84.0" layoutY="200.0" mnemonicParsing="false" text="Add" />
                         <Button layoutX="165.0" layoutY="200.0" mnemonicParsing="false" text="Remove" />
+                        <TextField layoutX="125.0" layoutY="120.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
