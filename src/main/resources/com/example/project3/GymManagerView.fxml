@@ -62,7 +62,11 @@
           </Tab>
           <Tab text="Fitness Class">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="125.0" layoutY="22.0" />
+                     </children></AnchorPane>
+                
             </content>
           </Tab>
             <Tab text="Information Hub">
