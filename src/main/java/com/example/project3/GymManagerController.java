@@ -29,6 +29,13 @@ public class GymManagerController {
     @FXML
     private TextField membLoc;
 
+    @FXML
+    private TextField classname;
+    @FXML
+    private TextField classInstructor;
+    @FXML
+    private TextField classLocation;
+
     /**Initial MemberDatabase object*/
     MemberDatabase mainData = new MemberDatabase();
     ClassSchedule classSchedule = new ClassSchedule();
@@ -355,12 +362,16 @@ public class GymManagerController {
         FitnessClass tempClass = new FitnessClass();
         Date today = new Date();
 
-        StringTokenizer token = new StringTokenizer(input, " ");
+        String className = classname.getText();
+        String instructor = classInstructor.getText();
+        String classLoc = classLocation.getText();
+
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken();
         //C className Instructor Location Fname Lname DOB
         String className = token.nextToken();
         String instructor = token.nextToken();
-        String classLoc = token.nextToken();
+        String classLoc = token.nextToken();*/
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -383,10 +394,14 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(token.nextToken());
+        memb.setFname(firstName.getText());
+        memb.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        memb.setDob(tempDob);
+        /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
         Date tempDob = new Date(token.nextToken());
-        memb.setDob(tempDob);
+        memb.setDob(tempDob);*/
 
         //for checking in the member after all of the checks
         int index = classSchedule.find(tempClass);
@@ -476,16 +491,19 @@ public class GymManagerController {
     @FXML
     public void commandCG(ActionEvent actionEvent) {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
-        StringTokenizer token = new StringTokenizer(input, " ");
-
         FitnessClass tempClass = new FitnessClass();
         Date today = new Date();
 
-        //String instructor = token.nextToken();
+        String className = classname.getText();
+        String instructor = classInstructor.getText();
+        String classLoc = classLocation.getText();
+
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken();
         String className = token.nextToken();
         String instructor = token.nextToken();
-        String classLoc = token.nextToken();
+        String classLoc = token.nextToken();*/
+
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -508,11 +526,14 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-
-        memb.setFname(token.nextToken());
+        memb.setFname(firstName.getText());
+        memb.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        memb.setDob(tempDob);
+        /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
         Date tempDob = new Date(token.nextToken());
-        memb.setDob(tempDob);
+        memb.setDob(tempDob);*/
 
 
         //check if member is in mList
@@ -565,11 +586,15 @@ public class GymManagerController {
         Member memb = new Member();
         FitnessClass tempClass = new FitnessClass();
 
-        StringTokenizer token = new StringTokenizer(input, " ");
+        String className = classname.getText();
+        String instructor = classInstructor.getText();
+        String classLoc = classLocation.getText();
+
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken();
         String className = token.nextToken();
         String instructor = token.nextToken();
-        String classLoc = token.nextToken();
+        String classLoc = token.nextToken();*/
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -592,10 +617,14 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(token.nextToken());
+        memb.setFname(firstName.getText());
+        memb.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        memb.setDob(tempDob);
+        /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
         Date tempDob = new Date(token.nextToken());
-        memb.setDob(tempDob);
+        memb.setDob(tempDob);*/
 
         //checks validity of dob
         if (memb.getDob().isValid() == false){
@@ -656,11 +685,14 @@ public class GymManagerController {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
         FitnessClass tempClass = new FitnessClass();
 
-        StringTokenizer token = new StringTokenizer(input, " ");
+        String className = classname.getText();
+        String instructor = classInstructor.getText();
+        String classLoc = classLocation.getText();
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken();
         String className = token.nextToken();
         String instructor = token.nextToken();
-        String classLoc = token.nextToken();
+        String classLoc = token.nextToken();*/
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -683,10 +715,14 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(token.nextToken());
+        memb.setFname(firstName.getText());
+        memb.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        memb.setDob(tempDob);
+        /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
         Date tempDob = new Date(token.nextToken());
-        memb.setDob(tempDob);
+        memb.setDob(tempDob);*/
 
         if (mainData.pubFind(memb) != null){
             if (mainData.pubFind(memb) instanceof Family && mainData.pubFind(memb) instanceof Premium == false){
