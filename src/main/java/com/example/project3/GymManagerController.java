@@ -3,6 +3,7 @@ package com.example.project3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,6 +19,15 @@ public class GymManagerController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private TextField membDob;
+    @FXML
+    private TextField membLoc;
 
     /**Initial MemberDatabase object*/
     MemberDatabase mainData = new MemberDatabase();
@@ -60,8 +70,14 @@ public class GymManagerController {
 
         //insert try-catch here for reading all the inputs, catch if one of them cannot be read
         //change from token to reading text input of each thing
+        memb.setFname(firstName.getText());
+        memb.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        memb.setDob(tempDob);
+        String tempLoc = membLoc.getText();
+
         Date bday18 = new Date("10/01/2004");
-        StringTokenizer token = new StringTokenizer(input, " ");
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken(); // skipping the initial letter
 
         memb.setFname(token.nextToken());
@@ -70,7 +86,7 @@ public class GymManagerController {
         memb.setDob(tempDob);
 
         //set location from token and check if in location enum
-        String tempLoc = token.nextToken();
+        String tempLoc = token.nextToken();*/
         if (locSetting(tempLoc, memb) == false){
             return false;
         }
@@ -125,8 +141,14 @@ public class GymManagerController {
         Family fam = new Family();
         Date today = new Date();
 
+        fam.setFname(firstName.getText());
+        fam.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        fam.setDob(tempDob);
+        String tempLoc = membLoc.getText();
+
         Date bday18 = new Date("10/01/2004");
-        StringTokenizer token = new StringTokenizer(input, " ");
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken(); // skipping the initial letter
 
         fam.setFname(token.nextToken());
@@ -135,7 +157,7 @@ public class GymManagerController {
         fam.setDob(tempDob);
 
         //set location from token and check if in location enum
-        String tempLoc = token.nextToken();
+        String tempLoc = token.nextToken();*/
         if (locSetting(tempLoc, fam) == false){
             return false;
         }
@@ -191,8 +213,14 @@ public class GymManagerController {
         Premium prem = new Premium();
         Date today = new Date();
 
+        prem.setFname(firstName.getText());
+        prem.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        prem.setDob(tempDob);
+        String tempLoc = membLoc.getText();
+
         Date bday18 = new Date("10/01/2004");
-        StringTokenizer token = new StringTokenizer(input, " ");
+        /*StringTokenizer token = new StringTokenizer(input, " ");
         token.nextToken(); // skipping the initial letter
 
         prem.setFname(token.nextToken());
@@ -201,7 +229,7 @@ public class GymManagerController {
         prem.setDob(tempDob);
 
         //set location from token and check if in location enum
-        String tempLoc = token.nextToken();
+        String tempLoc = token.nextToken();*/
         if (locSetting(tempLoc, prem) == false){
             return false;
         }
@@ -249,13 +277,19 @@ public class GymManagerController {
     @FXML
     public boolean commandR(ActionEvent actionEvent) {
         Member memb = new Member();
-        StringTokenizer token = new StringTokenizer(input, " ");
+
+        memb.setFname(firstName.getText());
+        memb.setLname(lastName.getText());
+        Date tempDob = new Date(membDob.getText());
+        memb.setDob(tempDob);
+
+        /*StringTokenizer token = new StringTokenizer(input, " ");
 
         token.nextToken();
         memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
         Date tempDob = new Date(token.nextToken());
-        memb.setDob(tempDob);
+        memb.setDob(tempDob);*/
         if (mainData.remove(memb) == true) {
             System.out.println(memb.getFname() + " " + memb.getLname() + " removed.");
         } else {
