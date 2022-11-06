@@ -1,4 +1,6 @@
-package gym;
+package com.example.project3;
+import com.example.project3.Date;
+import com.example.project3.Family;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;

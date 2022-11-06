@@ -1,4 +1,4 @@
-package gym;
+package com.example.project3;
 import java.util.Calendar;
 /** 
  * java util Calendar import that allows us to use the calendar class

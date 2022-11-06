@@ -1,4 +1,4 @@
-package gym;
+package com.example.project3;
 /**
  * Enum that initializes the location object for each member.
  * Parses location enum to a string.

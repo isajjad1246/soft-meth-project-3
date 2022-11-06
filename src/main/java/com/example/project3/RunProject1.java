@@ -1,4 +1,6 @@
-package gym;
+package com.example.project3;
+
+import com.example.project3.GymManager;
 
 /**
  * Driver file for GymManager. Runs the program.

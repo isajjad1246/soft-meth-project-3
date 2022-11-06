@@ -1,4 +1,7 @@
-package gym;
+package com.example.project3;
+
+import com.example.project3.Family;
+import com.example.project3.Member;
 
 /**
  * Initializes database for which members are stored in. Assists with finding a member within database, adding member

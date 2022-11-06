@@ -1,5 +1,4 @@
-package gym;
-
+package com.example.project3;
 import java.util.ArrayList;
 
 /***

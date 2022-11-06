@@ -1,10 +1,12 @@
-package gym;
+package com.example.project3;
+import com.example.project3.Family;
+
 import java.text.DecimalFormat;
 /***
  * Class that helps initialize anything regarding the membership type, Premium.
  * @author Reiya Dave, Ifrah Sajjad
  */
-public class Premium extends Family{
+public class Premium extends Family {
     //private Member[] prem;   //stores members with premium memberships
     //private int size;
     private boolean isPremMembership;

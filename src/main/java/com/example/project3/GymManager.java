@@ -1,4 +1,8 @@
-package gym;
+package com.example.project3;
+import com.example.project3.ClassSchedule;
+import com.example.project3.Date;
+import com.example.project3.Family;
+import com.example.project3.FitnessClass;
 
 import java.util.Scanner;
 import java.io.File;

@@ -1,4 +1,8 @@
-package gym;
+package com.example.project3;
+import com.example.project3.Date;
+import com.example.project3.Location;
+import com.example.project3.Member;
+import com.example.project3.Premium;
 
 import static org.junit.Assert.*;
 //import org.junit.jupiter.api.Test;

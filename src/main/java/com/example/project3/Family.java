@@ -1,4 +1,4 @@
-package gym;
+package com.example.project3;
 import java.text.DecimalFormat;
 /***
  * Class that helps initialize anything regarding the membership type, Family.

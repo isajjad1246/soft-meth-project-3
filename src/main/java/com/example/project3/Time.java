@@ -1,5 +1,4 @@
-package gym;
-
+package com.example.project3;
 /**
  * Enum that initializes the time object that fitness classes occur.
  * @author Ifrah Sajjad, Reiya Dave
