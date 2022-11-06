@@ -20,6 +20,7 @@ public class GymManagerController {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
+    //membership tab
     @FXML
     private TextField firstName;
     @FXML
@@ -29,6 +30,13 @@ public class GymManagerController {
     @FXML
     private TextField membLoc;
 
+    //Fitness class tab
+    @FXML
+    private TextField fcFirstName;
+    @FXML
+    private TextField fcLastName;
+    @FXML
+    private TextField fcMembDob;
     @FXML
     private TextField classname;
     @FXML
@@ -394,9 +402,9 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(firstName.getText());
-        memb.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
+        memb.setFname(fcFirstName.getText());
+        memb.setLname(fcLastName.getText());
+        Date tempDob = new Date(fcMembDob.getText());
         memb.setDob(tempDob);
         /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
@@ -526,9 +534,9 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(firstName.getText());
-        memb.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
+        memb.setFname(fcFirstName.getText());
+        memb.setLname(fcLastName.getText());
+        Date tempDob = new Date(fcMembDob.getText());
         memb.setDob(tempDob);
         /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
@@ -617,9 +625,9 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(firstName.getText());
-        memb.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
+        memb.setFname(fcFirstName.getText());
+        memb.setLname(fcLastName.getText());
+        Date tempDob = new Date(fcMembDob.getText());
         memb.setDob(tempDob);
         /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
@@ -715,9 +723,9 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(firstName.getText());
-        memb.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
+        memb.setFname(fcFirstName.getText());
+        memb.setLname(fcLastName.getText());
+        Date tempDob = new Date(fcMembDob.getText());
         memb.setDob(tempDob);
         /*memb.setFname(token.nextToken());
         memb.setLname(token.nextToken());
