@@ -160,13 +160,6 @@ public class FitnessClass{
         //Member[] temp = new Member[size-1];
         if (removeMembIndex != -1){
             classMembers.remove(removeMembIndex);
-            /*for (int i = 0, j = 0; i < size; i++){
-                if (i != removeMembIndex){
-                    temp[j++] = classMembers[i];
-                }
-            }
-            classMembers = temp;
-            size--;*/
             return true;
 
         }

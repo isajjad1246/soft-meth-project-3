@@ -788,21 +788,6 @@ public class GymManagerController {
                 if (locSetting(tempLoc, memb) == false){
                     return;
                 }
-                /*if (tempLoc.toLowerCase().equals("bridgewater")){
-                    memb.setLocation(Location.BRIDGEWATER);
-                }
-                else if (tempLoc.toLowerCase().equals("edison")){
-                    memb.setLocation(Location.EDISON);
-                }
-                else if (tempLoc.toLowerCase().equals("piscataway")){
-                    memb.setLocation(Location.PISCATAWAY);
-                }
-                else if (tempLoc.toLowerCase().equals("somerville")){
-                    memb.setLocation(Location.SOMERVILLE);
-                }
-                else if (tempLoc.toLowerCase().equals("franklin")){
-                    memb.setLocation(Location.FRANKLIN);
-                }*/
                 mainData.add(memb);
 
             }
