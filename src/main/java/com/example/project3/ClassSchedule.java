@@ -86,25 +86,11 @@ public class ClassSchedule{
         return result;
     }
 
-    //write conflict method
-    /*public void conflict(FitnessClass2 fitnessClass){
-        //parsed in class is the one member is trying to check in to
-        //traverse through all classes- if statement to check if time is same as parsed in fitnessclass and then check if member is in that class
-        int hr = fitnessClass.getClassTime().getHour();
-        int min = fitnessClass.getClassTime().getMin();
-        for (int i = 0; i < this.numClasses; i++){
-            if (hr == classes[i].getClassTime().getHour() && min == classes[i].getClassTime().getMin()){
-                for (int j = 0; j < classes[i].getSize(); j++){
-                    if (this.getFname().toLowerCase().equals(this.classMembers[i].getFname().toLowerCase()) && member.getLname().toLowerCase().equals(this.classMembers[i].getLname().toLowerCase()) && member.getDob().compareTo(this.classMembers[i].getDob())==0)
-                }
-            }
-        }
-    }*/
 
     /***
      * method that will read in classSchedule.txt file through the use of scanner
      * */
-    public void readFile(){
+    public String readFile(){
         try{
             File file = new File("gym/classSchedule.txt"); //change back
 
@@ -147,12 +133,16 @@ public class ClassSchedule{
                 numClasses++;
 
             }
-            System.out.println("Fitness Classes Loaded.");
+            //System.out.println("Fitness Classes Loaded.");
+            String result = "Fitness Classes Loaded.";
             sc.close();
+            return result;
         }
         catch (FileNotFoundException e){
-            System.out.println("File does not exist.");
+            //System.out.println("File does not exist.");
+            String result = "File does not exist.";
             e.printStackTrace();
+            return result;
         }
     }
 

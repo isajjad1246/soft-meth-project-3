@@ -67,7 +67,7 @@ public class GymManagerController {
 
     /** Method to add member to gym member database.
      * Runs through necessary checks to see if member can be added, then adds member
-     * @param input
+     * @param actionEvent
      * @return boolean
      */
     @FXML
@@ -141,7 +141,7 @@ public class GymManagerController {
     /***
      * Method that adds a member with the family membership to the member database and set to expire 3 months later
      * @return boolean
-     * @param input
+     * @param actionEvent
      */
     @FXML
     public boolean commandAF(ActionEvent actionEvent) {
@@ -213,7 +213,7 @@ public class GymManagerController {
      * Method that adds a member with the premium membership to the member database.
      * The expiration date will be set to expire one year later.
      * @return boolean
-     * @param input
+     * @param actionEvent
      */
     @FXML
     public boolean commandAP(ActionEvent actionEvent) {
@@ -278,7 +278,7 @@ public class GymManagerController {
     /** Method to remove member from gym member database.
      * Runs through necessary checks to see if member can be added, then adds member
      * @return boolean
-     * @param input
+     * @param actionEvent
      *
      */
     @FXML
@@ -355,7 +355,7 @@ public class GymManagerController {
 
     /**Method to check a member into fitness class, doing the necessary checks to ensure that member can be checked in.
      * Checks for time conflict, date validity, and whether a member is in database or not.
-     * @param input */
+     * @param actionEvent */
     @FXML
     public void commandC(ActionEvent actionEvent) {
         Member memb = new Member();
@@ -755,7 +755,8 @@ public class GymManagerController {
     }
     @FXML
     public void commandLS(ActionEvent actionEvent) {
-        classSchedule.readFile();
+        String result = classSchedule.readFile();
+
         commandS();
 
     }
@@ -809,4 +810,4 @@ public class GymManagerController {
 
 
 }
-}
+
