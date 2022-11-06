@@ -64,9 +64,11 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="125.0" layoutY="22.0" />
-                        <TextField layoutX="125.0" layoutY="56.0" />
-                        <DatePicker layoutX="126.0" layoutY="90.0" prefHeight="20.0" prefWidth="159.0" />
+                        <TextField layoutX="126.0" layoutY="14.0" />
+                        <TextField layoutX="126.0" layoutY="46.0" />
+                        <DatePicker layoutX="126.0" layoutY="78.0" prefHeight="20.0" prefWidth="159.0" />
+                        <TextField layoutX="126.0" layoutY="115.0" />
+                        <TextField layoutX="125.0" layoutY="148.0" />
                      </children></AnchorPane>
                 
             </content>
