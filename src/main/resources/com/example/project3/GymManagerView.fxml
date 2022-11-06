@@ -51,7 +51,12 @@
                               <Font size="8.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton layoutX="234.0" layoutY="164.0" mnemonicParsing="false" text="RadioButton" />
+                        <RadioButton layoutX="233.0" layoutY="162.0" mnemonicParsing="false" text="RadioButton">
+                           <font>
+                              <Font size="8.0" />
+                           </font></RadioButton>
+                        <Button layoutX="84.0" layoutY="200.0" mnemonicParsing="false" text="Add" />
+                        <Button layoutX="165.0" layoutY="200.0" mnemonicParsing="false" text="Remove" />
                      </children></AnchorPane>
             </content>
           </Tab>
