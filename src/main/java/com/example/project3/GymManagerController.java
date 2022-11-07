@@ -3,6 +3,7 @@ package com.example.project3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 import java.io.File;
@@ -69,11 +70,11 @@ public class GymManagerController {
 
     //information hub menus
     @FXML
-    private ChoiceBox membDatabaseMenu;
+    private ChoiceBox <String> membDatabaseMenu;
     @FXML
-    private ChoiceBox classScheduleMenu;
+    private ChoiceBox <String> classScheduleMenu;
     @FXML
-    private ChoiceBox membFeeMenu;
+    private ChoiceBox <String> membFeeMenu;
     /**Initial MemberDatabase object*/
     MemberDatabase mainData = new MemberDatabase();
     ClassSchedule classSchedule = new ClassSchedule();
@@ -104,6 +105,10 @@ public class GymManagerController {
     }
 
     public void action(){
+
+    }
+    @FXML
+    void getAddMember(MouseEvent event){
 
     }
 
