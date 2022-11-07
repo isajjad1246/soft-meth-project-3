@@ -99,7 +99,7 @@ public class GymManagerController {
         }
         else{
             //System.out.println(tempLoc + ": invalid location!");
-            ta.appendText(tempLoc + ": invalid location!");
+            ta.appendText("\n" + tempLoc + ": invalid location!");
             return false;
         }
         return true;
@@ -148,20 +148,25 @@ public class GymManagerController {
     void getAddMember(MouseEvent event){
         if (familyButton.isSelected()){
             //call family add
+            commandAF();
         }
         else if (standardButton.isSelected()){
             //call standard add
+            commandA();
         }
         else if (premiumButton.isSelected()){
             //call premium add
+            commandAP();
         }
         else{
             //error, membership type needs to be selected
+            ta.appendText("\nError: Membership type needs to be selected.");
         }
     }
     @FXML
     void getRemoveMember(MouseEvent event){
         //call commandR function
+        commandR();
     }
 
     //fitnessclass tab
@@ -169,24 +174,30 @@ public class GymManagerController {
     void getFcAddMember(MouseEvent event){
         if (guestButton.isSelected()){
             //call guest add
+            commandCG();;
         }
         else if (noGuestButton.isSelected()){
             //call no guest add
+            commandC();
         }
         else{
             //error, guest or no guest needs to be selected
+            ta.appendText("\nError: Guest type needs to be selected.");
         }
     }
     @FXML
     void getFcRemoveMember(MouseEvent event){
         if (guestButton.isSelected()){
             //call guest remove
+            commandDG();
         }
         else if (noGuestButton.isSelected()){
             //call no guest remove
+            commandD();
         }
         else{
             //error, guest or no guest needs to be selected
+            ta.appendText("\nError: Guest type needs to be selected.");
         }
     }
 
@@ -194,11 +205,11 @@ public class GymManagerController {
 
     /** Method to add member to gym member database.
      * Runs through necessary checks to see if member can be added, then adds member
-     * @param actionEvent
+     *
      * @return boolean
      */
     @FXML
-    public boolean commandA(ActionEvent actionEvent) {
+    public boolean commandA() {
         Member memb = new Member();
         Date today = new Date();
 
@@ -273,10 +284,10 @@ public class GymManagerController {
     /***
      * Method that adds a member with the family membership to the member database and set to expire 3 months later
      * @return boolean
-     * @param actionEvent
+     *
      */
     @FXML
-    public boolean commandAF(ActionEvent actionEvent) {
+    public boolean commandAF() {
         Family fam = new Family();
         Date today = new Date();
 
@@ -353,7 +364,7 @@ public class GymManagerController {
      * @param actionEvent
      */
     @FXML
-    public boolean commandAP(ActionEvent actionEvent) {
+    public boolean commandAP() {
         Premium prem = new Premium();
         Date today = new Date();
 
@@ -424,7 +435,7 @@ public class GymManagerController {
      *
      */
     @FXML
-    public boolean commandR(ActionEvent actionEvent) {
+    public boolean commandR() {
         Member memb = new Member();
 
         memb.setFname(firstName.getText());
@@ -504,7 +515,7 @@ public class GymManagerController {
      * Checks for time conflict, date validity, and whether a member is in database or not.
      * @param actionEvent */
     @FXML
-    public void commandC(ActionEvent actionEvent) {
+    public void commandC() {
         Member memb = new Member();
         FitnessClass tempClass = new FitnessClass();
         Date today = new Date();
@@ -648,7 +659,7 @@ public class GymManagerController {
 
     }
     @FXML
-    public void commandCG(ActionEvent actionEvent) {
+    public void commandCG() {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
         FitnessClass tempClass = new FitnessClass();
         Date today = new Date();
@@ -748,7 +759,7 @@ public class GymManagerController {
 
     }
     @FXML
-    public void commandD(ActionEvent actionEvent) {
+    public void commandD() {
         Member memb = new Member();
         FitnessClass tempClass = new FitnessClass();
 
@@ -856,7 +867,7 @@ public class GymManagerController {
 
     }
     @FXML
-    public void commandDG(ActionEvent actionEvent) {
+    public void commandDG() {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
         FitnessClass tempClass = new FitnessClass();
 
@@ -933,7 +944,7 @@ public class GymManagerController {
 
     }
     @FXML
-    public void commandLS(ActionEvent actionEvent) {
+    public void commandLS() {
         String result = classSchedule.readFile();
         //append result to text area
         ta.appendText(result);
@@ -941,7 +952,7 @@ public class GymManagerController {
 
     }
     @FXML
-    public void commandLM(ActionEvent actionEvent) {
+    public void commandLM() {
         ta.appendText(mainData.loadMembers());
 
         /*try{
