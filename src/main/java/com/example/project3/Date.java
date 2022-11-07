@@ -3,7 +3,8 @@ import java.util.Calendar;
 /** 
  * java util Calendar import that allows us to use the calendar class
  * */
-import java.util.StringTokenizer;    
+import java.util.NoSuchElementException;
+import java.util.StringTokenizer;
 /**
  * importing string tokenizer class from java.util
  * */
@@ -167,13 +168,16 @@ public class Date implements Comparable<Date> {
      * */
     public Date(String date) {
 
-        StringTokenizer todaysDate = new StringTokenizer(date, "/");
 
-        month = Integer.parseInt(todaysDate.nextToken());
+            StringTokenizer todaysDate = new StringTokenizer(date, "/");
 
-        day = Integer.parseInt(todaysDate.nextToken());
+            month = Integer.parseInt(todaysDate.nextToken());
 
-        year = Integer.parseInt(todaysDate.nextToken());
+            day = Integer.parseInt(todaysDate.nextToken());
+
+            year = Integer.parseInt(todaysDate.nextToken());
+
+
 
     }
 
