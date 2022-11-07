@@ -5,6 +5,6 @@ module com.example.project3 {
 
     opens com.example.project3 to javafx.fxml;
     exports com.example.project3;
-    exports com.example.project3.gym;
-    opens com.example.project3.gym to javafx.fxml;
+    //exports com.example.project3.gym;
+    //opens com.example.project3.gym to javafx.fxml;
 }
