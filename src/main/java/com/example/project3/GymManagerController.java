@@ -1,5 +1,7 @@
 package com.example.project3;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -81,6 +83,16 @@ public class GymManagerController {
     /**Creates calendar object*/
     Calendar calendar = Calendar.getInstance(); // creating calendar object
 
+    ObservableList<String> membDataBaseList = FXCollections.observableArrayList("Print by member", "Load member list from file");
+    ObservableList<String> classDataList = FXCollections.observableArrayList("Show all classes", "Load class schedule by text file");
+    ObservableList<String> membFeeList = FXCollections.observableArrayList("Current Bill");
+
+    @FXML
+    private void initialize(){
+        membDatabaseMenu.setItems(membDataBaseList);
+        classScheduleMenu.setItems(classDataList);
+        membFeeMenu.setItems(membFeeList);
+    }
     public boolean locSetting(String tempLoc, Member memb){
         if (tempLoc.toLowerCase().equals("bridgewater")){
             memb.setLocation(Location.BRIDGEWATER);
