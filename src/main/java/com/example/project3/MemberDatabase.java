@@ -3,6 +3,11 @@ package com.example.project3;
 import com.example.project3.Family;
 import com.example.project3.Member;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
 /**
  * Initializes database for which members are stored in. Assists with finding a member within database, adding member
  * to database, removing member from database, and printing database based on different sorting parameters.
@@ -110,29 +115,37 @@ public class MemberDatabase {
 
     /** Prints out gym member database in string format
      * */
-    public void print(){
+    public String print(){
         //print the array contents as is
         //do something abt it possibly printing empty indexes
+        String result = "";
         if (this.size == 0){
-            System.out.println("Member database is empty!");
+            //System.out.println("Member database is empty!");
+            result += "Member database is empty!\n";
+            return result;
         }
         else{
-            System.out.println("-list of members-");
+            //System.out.println("-list of members-");
+            result += "-list of members-\n";
             for(int i = 0; i < this.size; i++){
-                System.out.println(mlist[i].toString());
+                //System.out.println(mlist[i].toString());
+                result += mlist[i].toString() + "\n";
             }
-            System.out.println("-end of list-");
+            //System.out.println("-end of list-");
+            result += "-end of list-\n";
         }
-
+        return result;
     }
     /** Prints out gym member database in string format, sorting by county, and then zipcode
      * */
-    public void printByCounty(){
+    public String printByCounty(){
         //sort by county and then zipcode
         //insertion sort
+        String result = "";
         if (this.size == 0){
-            System.out.println("Member database is empty!");
-            return;
+            //System.out.println("Member database is empty!");
+            result += "Member database is empty!\n";
+            return result;
         }
 
         for (int i = 0; i < size; i++){
@@ -152,20 +165,26 @@ public class MemberDatabase {
             }
 
         }
-        System.out.println("-list of members sorted by county and zipcode-");
+        //System.out.println("-list of members sorted by county and zipcode-");
+        result += "-list of members sorted by county and zipcode-\n";
         for(int i = 0; i < this.size; i++){
-            System.out.println(mlist[i].toString());
+            //System.out.println(mlist[i].toString());
+            result += mlist[i].toString() + "\n";
         }
-        System.out.println("-end of list-");
+        //System.out.println("-end of list-");
+        result += "-end of list-\n";
+        return result;
 
     }
     /** Prints out gym member database in string format, sorting by membership expiration date
      * */
-    public void printByExpirationDate(){
+    public String printByExpirationDate(){
         //sort by the expiration date
+        String result = "";
         if (this.size == 0){
-            System.out.println("Member database is empty!");
-            return;
+            //System.out.println("Member database is empty!");
+            result += "Member database is empty!\n";
+            return result;
         }
         Member temp;
         for(int i=0; i< size; i++){
@@ -177,20 +196,26 @@ public class MemberDatabase {
                 }
             }
         }
-        System.out.println("-list of members sorted by membership expiration date-");
+        //System.out.println("-list of members sorted by membership expiration date-");
+        result += "-list of members sorted by membership expiration date-\n";
         for(int i = 0; i < this.size; i++){
-            System.out.println(mlist[i].toString());
+            //System.out.println(mlist[i].toString());
+            result += mlist[i].toString() + "\n";
         }
-        System.out.println("-end of list-");
+        //System.out.println("-end of list-");
+        result += "-end of list-\n";
+        return result;
     }
     /** Prints out gym membership database in string format, sorting by last name, then first name
      * */
-    public void printByName(){
+    public String printByName(){
         //sort by last name and then first name
         //use compareTo()
+        String result = "";
         if (this.size == 0){
-            System.out.println("Member database is empty!");
-            return;
+            //System.out.println("Member database is empty!");
+            result += "Member database is empty!\n";
+            return result;
         }
 
         //SORTING ALGO          
@@ -205,43 +230,100 @@ public class MemberDatabase {
                 }
             }
         }
-        System.out.println("-list of members sorted by last name, and first name-");
+        //System.out.println("-list of members sorted by last name, and first name-");
+        result += "-list of members sorted by last name, and first name-\n";
         for(int i = 0; i < this.size; i++){
-            System.out.println(mlist[i].toString());
+            //System.out.println(mlist[i].toString());
+            result += mlist[i].toString() + "\n";
         }
-        System.out.println("-end of list-");
+        //System.out.println("-end of list-");
+        result += "-end of list-\n";
+        return result;
 
     }
 
     /**
      * Method that prints members followed by their membership fees
      * */
-    public void printByMembershipFee(){
+    public String printByMembershipFee(){
+        String result = "";
         if (this.size == 0){
-            System.out.println("Member database is empty!");
+            //System.out.println("Member database is empty!");
+            result += "Member database is empty!\n";
+            return result;
         }
         else{
-            System.out.println("-list of members with membership fees-");
+            //System.out.println("-list of members with membership fees-");
+            result += "-list of members with membership fees-\n";
             for(int i = 0; i < this.size; i++){
                 if(mlist[i] instanceof Family == true){
-
-                    System.out.println(mlist[i].toString() + " (Family) guest-pass remaining: " + " Membership fee: $" + mlist[i].membershipFee());
+                    //System.out.println(mlist[i].toString() + " (Family) guest-pass remaining: " + " Membership fee: $" + mlist[i].membershipFee());
+                    result += mlist[i].toString() + " (Family) guest-pass remaining: " + " Membership fee: $" + mlist[i].membershipFee() + "\n";
                 }else if(mlist[i] instanceof Premium == true){
-                    System.out.println(mlist[i].toString() + " (Premium) guest-pass remaining: " + " Membership fee: $" + mlist[i].membershipFee());
+                    //System.out.println(mlist[i].toString() + " (Premium) guest-pass remaining: " + " Membership fee: $" + mlist[i].membershipFee());
+                    result += mlist[i].toString() + " (Premium) guest-pass remaining: " + " Membership fee: $" + mlist[i].membershipFee() + "\n";
                 }else{ //standard
-                    System.out.println(mlist[i].toString() + " Membership fee: $" + mlist[i].membershipFee());
+                    //System.out.println(mlist[i].toString() + " Membership fee: $" + mlist[i].membershipFee());
+                    result += mlist[i].toString() + " Membership fee: $" + mlist[i].membershipFee() + "\n";
                 }//remember when to check guest passes 
             }
-            System.out.println("-end of list-");
+            //System.out.println("-end of list-");
+            result += "-end of list-\n";
         }
+        return result;
     }
 
-    public String loadMembers(M){
-
+    public String loadMembers(){
+        String result = "";
+        try{
+            File file = new File("gym/memberList.txt");
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()){
+                //parse member data to mlist
+                String data = sc.nextLine();
+                Member memb = new Member();
+                StringTokenizer token = new StringTokenizer(data, " ");
+                memb.setFname(token.nextToken());
+                memb.setLname(token.nextToken());
+                Date tempDob = new Date(token.nextToken());
+                memb.setDob(tempDob);
+                Date tempExp = new Date(token.nextToken());
+                memb.setExpire(tempExp);
+                String tempLoc = token.nextToken();
+                if (tempLoc.toLowerCase().equals("bridgewater")){
+                    memb.setLocation(Location.BRIDGEWATER);
+                }
+                else if (tempLoc.toLowerCase().equals("edison")){
+                    memb.setLocation(Location.EDISON);
+                }
+                else if (tempLoc.toLowerCase().equals("piscataway")){
+                    memb.setLocation(Location.PISCATAWAY);
+                }
+                else if (tempLoc.toLowerCase().equals("somerville")){
+                    memb.setLocation(Location.SOMERVILLE);
+                }
+                else if (tempLoc.toLowerCase().equals("franklin")){
+                    memb.setLocation(Location.FRANKLIN);
+                }
+                else{
+                    //System.out.println(tempLoc + ": invalid location!");
+                    result = tempLoc + ": invalid location!\n";
+                    return result;
+                }
+                this.add(memb);
+            }
+            sc.close();
+            System.out.println("- list of members loaded- ");
+            result += "- list of members loaded- \n";
+            result += this.print();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("An error occurred.");
+            result = "An error occurred.\n";
+            e.printStackTrace();
+        }
+        return result;
     }
-
-
-
 
 }
 

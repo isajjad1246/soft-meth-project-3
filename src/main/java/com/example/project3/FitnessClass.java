@@ -169,20 +169,25 @@ public class FitnessClass{
     /**
      * Method that prints the participants and guests for a class
      * */
-    public void printClass(){
+    public String printClass(){
+        String result = "";
         if (classMembers.size() != 0){
-            System.out.println("\t- Participants -");
+            //System.out.println("\t- Participants -");
+            result = "\t- Participants -\n";
             for (int i = 0; i < classMembers.size(); i++){
-                System.out.println("\t\t" + this.classMembers.get(i).toString());
+                //System.out.println("\t\t" + this.classMembers.get(i).toString());
+                result += "\t\t" + this.classMembers.get(i).toString() + "\n";
             }
         }
         if (classGuests.size() != 0){
-            System.out.println("\t- Guests -");
+            //System.out.println("\t- Guests -");
+            result += "\t- Guests -\n";
             for (int i = 0; i < classGuests.size(); i++){
-                System.out.println("\t\t" + this.classGuests.get(i).toString());
+                //System.out.println("\t\t" + this.classGuests.get(i).toString());
+                result += "\t\t" + this.classGuests.get(i).toString() + "\n";
             }
         }
-        return;
+        return result;
     }
 
 

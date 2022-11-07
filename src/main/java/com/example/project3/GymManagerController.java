@@ -3,6 +3,7 @@ package com.example.project3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.File;
@@ -19,6 +20,10 @@ public class GymManagerController {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+
+    //Text Areas
+    @FXML
+    private TextArea ta;
 
     //membership tab
     @FXML
@@ -764,13 +769,16 @@ public class GymManagerController {
     @FXML
     public void commandLS(ActionEvent actionEvent) {
         String result = classSchedule.readFile();
-
+        //append result to text area
+        ta.appendText(result);
         commandS();
 
     }
     @FXML
     public void commandLM(ActionEvent actionEvent) {
-        try{
+        mainData.loadMembers();
+
+        /*try{
             File file = new File("gym/memberList.txt");
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()){
@@ -798,7 +806,7 @@ public class GymManagerController {
         catch (FileNotFoundException e){
             System.out.println("An error occurred.");
             e.printStackTrace();
-        }
+        }*/
     }
 
 
