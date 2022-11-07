@@ -98,7 +98,8 @@ public class GymManagerController {
             memb.setLocation(Location.FRANKLIN);
         }
         else{
-            System.out.println(tempLoc + ": invalid location!");
+            //System.out.println(tempLoc + ": invalid location!");
+            ta.appendText(tempLoc + ": invalid location!");
             return false;
         }
         return true;
@@ -141,10 +142,55 @@ public class GymManagerController {
 
 
     }
+
+    //membership tab
     @FXML
     void getAddMember(MouseEvent event){
-
+        if (familyButton.isSelected()){
+            //call family add
+        }
+        else if (standardButton.isSelected()){
+            //call standard add
+        }
+        else if (premiumButton.isSelected()){
+            //call premium add
+        }
+        else{
+            //error, membership type needs to be selected
+        }
     }
+    @FXML
+    void getRemoveMember(MouseEvent event){
+        //call commandR function
+    }
+
+    //fitnessclass tab
+    @FXML
+    void getFcAddMember(MouseEvent event){
+        if (guestButton.isSelected()){
+            //call guest add
+        }
+        else if (noGuestButton.isSelected()){
+            //call no guest add
+        }
+        else{
+            //error, guest or no guest needs to be selected
+        }
+    }
+    @FXML
+    void getFcRemoveMember(MouseEvent event){
+        if (guestButton.isSelected()){
+            //call guest remove
+        }
+        else if (noGuestButton.isSelected()){
+            //call no guest remove
+        }
+        else{
+            //error, guest or no guest needs to be selected
+        }
+    }
+
+
 
     /** Method to add member to gym member database.
      * Runs through necessary checks to see if member can be added, then adds member
