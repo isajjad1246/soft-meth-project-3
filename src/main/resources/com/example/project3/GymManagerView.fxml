@@ -40,22 +40,22 @@
                               <Font size="8.0" />
                            </font>
                         </Label>
-                        <RadioButton layoutX="164.0" layoutY="162.0" mnemonicParsing="false" text="Standard">
+                        <RadioButton fx:id="standardButton" layoutX="164.0" layoutY="162.0" mnemonicParsing="false" text="Standard">
                            <font>
                               <Font size="8.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton layoutX="93.0" layoutY="162.0" mnemonicParsing="false" text="Family">
+                        <RadioButton fx:id="familyButton" layoutX="93.0" layoutY="162.0" mnemonicParsing="false" text="Family">
                            <font>
                               <Font size="8.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton layoutX="233.0" layoutY="162.0" mnemonicParsing="false" text="Premium">
+                        <RadioButton fx:id="premiumButton" layoutX="233.0" layoutY="162.0" mnemonicParsing="false" text="Premium">
                            <font>
                               <Font size="8.0" />
                            </font></RadioButton>
                         <TextField fx:id="membLoc" layoutX="125.0" layoutY="120.0" />
-                        <HBox alignment="CENTER" layoutX="55.0" layoutY="176.0" prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="addRemoveButton" alignment="CENTER" layoutX="55.0" layoutY="176.0" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button mnemonicParsing="false" text="Add" />
                               <Button mnemonicParsing="false" text="Remove" />
@@ -73,11 +73,11 @@
                         <TextField fx:id="classname" layoutX="126.0" layoutY="115.0" />
                         <TextField fx:id="classInstructor" layoutX="125.0" layoutY="148.0" />
                         <TextField fx:id="classLocation" layoutX="126.0" layoutY="181.0" />
-                        <RadioButton layoutX="49.0" layoutY="214.0" mnemonicParsing="false" text="Guest">
+                        <RadioButton fx:id="guestButton" layoutX="49.0" layoutY="214.0" mnemonicParsing="false" text="Guest">
                            <font>
                               <Font size="10.0" />
                            </font></RadioButton>
-                        <RadioButton layoutX="169.0" layoutY="214.0" mnemonicParsing="false" text="Not Guest">
+                        <RadioButton fx:id="noGuestButton" layoutX="169.0" layoutY="214.0" mnemonicParsing="false" text="Not Guest">
                            <font>
                               <Font size="10.0" />
                            </font></RadioButton>
@@ -87,7 +87,7 @@
                         <Label layoutX="34.0" layoutY="120.0" text="Class Name" />
                         <Label layoutX="23.0" layoutY="153.0" text="Instructor Name" />
                         <Label layoutX="27.0" layoutY="186.0" text="Class Location" />
-                        <HBox alignment="TOP_CENTER" layoutX="78.0" layoutY="229.0" prefHeight="24.0" prefWidth="145.0">
+                        <HBox fx:id="addRemoveButton2" alignment="TOP_CENTER" layoutX="78.0" layoutY="229.0" prefHeight="24.0" prefWidth="145.0">
                            <children>
                               <Button mnemonicParsing="false" prefHeight="5.0" prefWidth="49.0" text="Add" />
                               <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Remove" />
@@ -101,10 +101,10 @@
                 <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ChoiceBox fx:id="dropdown menu" layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="153.0" />
+                        <ChoiceBox fx:id="membDatabaseMenu" layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="153.0" />
                         <Label layoutX="40.0" layoutY="19.0" text="Member Database" />
-                        <ChoiceBox layoutX="16.0" layoutY="95.0" prefWidth="150.0" />
-                        <ChoiceBox layoutX="16.0" layoutY="179.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="classScheduleMenu" layoutX="16.0" layoutY="95.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="membFeeMenu" layoutX="16.0" layoutY="179.0" prefWidth="150.0" />
                         <Label layoutX="40.0" layoutY="100.0" text="Class Schedule" />
                         <Label layoutX="36.0" layoutY="184.0" prefHeight="17.0" prefWidth="105.0" text="Membership Fee" />
                      </children></AnchorPane>
