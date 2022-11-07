@@ -1,6 +1,7 @@
-package com.example.project3;
+package com.example.project3.gym;
 import com.example.project3.Date;
 import com.example.project3.FitnessClass;
+import com.example.project3.Member;
 
 import static org.junit.Assert.*;
 
