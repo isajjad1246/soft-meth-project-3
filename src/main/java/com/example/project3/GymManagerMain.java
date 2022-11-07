@@ -14,7 +14,7 @@ public class GymManagerMain extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Gym Manager");
         stage.setScene(scene);
-        stage.show();
+        stage.show(); //hi reiya
     }
 
     public static void main(String[] args) {
