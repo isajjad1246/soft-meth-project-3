@@ -3,8 +3,10 @@ package com.example.project3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -48,6 +50,23 @@ public class GymManagerController {
     private TextField classInstructor;
     @FXML
     private TextField classLocation;
+
+    //membership tab buttons
+    @FXML
+    private RadioButton familyButton;
+    @FXML
+    private RadioButton standardButton;
+    @FXML
+    private RadioButton premiumButton;
+    @FXML
+    private HBox addRemoveButton;
+
+    //fitnessclass buttons
+    @FXML
+    private RadioButton guestButton;
+    @FXML
+    private RadioButton noGuestButton;
+
 
     /**Initial MemberDatabase object*/
     MemberDatabase mainData = new MemberDatabase();
