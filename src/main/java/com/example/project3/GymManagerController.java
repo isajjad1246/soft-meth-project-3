@@ -104,6 +104,40 @@ public class GymManagerController {
     }
 
     public void action(){
+        //membership tab
+        /*if (hbox add is selected){
+            if (familyButton.isSelected()) {
+                //do family add method
+            }
+            else if (standardButton.isSelected()){
+                //do standard add method
+            }
+            else if (premiumButton.isSelected()){
+                //do premium add method
+            }
+            else{
+                //error message that membership type must be selected
+            }
+        }*/
+        /*else if (hbxo remove is selected){
+            if (familyButton.isSelected()) {
+                //do family add method
+            }
+            else if (standardButton.isSelected()){
+                //do standard add method
+            }
+            else if (premiumButton.isSelected()){
+                //do premium add method
+            }
+            else{
+                //error message that membership type must be selected
+            }
+        }*/
+
+        //fitnessclass tab
+
+
+
 
     }
 
