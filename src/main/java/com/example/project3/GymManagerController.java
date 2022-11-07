@@ -230,6 +230,7 @@ public class GymManagerController {
         memb.setFname(firstName.getText());
         memb.setLname(lastName.getText());
 
+
         Date tempDob = new Date(membDob.getText());
         memb.setDob(tempDob);
         String tempLoc = membLoc.getText();
