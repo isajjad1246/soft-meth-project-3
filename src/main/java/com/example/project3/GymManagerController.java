@@ -2,10 +2,7 @@ package com.example.project3;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.io.File;
@@ -67,9 +64,16 @@ public class GymManagerController {
     @FXML
     private RadioButton noGuestButton;
     @FXML
-    private HBox fcAddRemoveButton;
+    private HBox addRemoveButton2;
 
 
+    //information hub menus
+    @FXML
+    private ChoiceBox membDatabaseMenu;
+    @FXML
+    private ChoiceBox classScheduleMenu;
+    @FXML
+    private ChoiceBox membFeeMenu;
     /**Initial MemberDatabase object*/
     MemberDatabase mainData = new MemberDatabase();
     ClassSchedule classSchedule = new ClassSchedule();
@@ -100,8 +104,7 @@ public class GymManagerController {
     }
 
     public void action(){
-        //membership tab
-        if (familyButton.isSelected() && ad)
+
     }
 
     /** Method to add member to gym member database.
