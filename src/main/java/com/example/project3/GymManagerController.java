@@ -476,33 +476,33 @@ public class GymManagerController {
     /**Method to print the contents of the gym member database.*/
     @FXML
     public void commandP() {
-        ta.appendText(mainData.print());
+        ta.appendText("\n" + mainData.print());
     }
 
     /**Method to print the contents of the gym member database, ordered by county and zipcode.
      */
     @FXML
     public void commandPC() {
-        ta.appendText(mainData.printByCounty());
+        ta.appendText("\n" + mainData.printByCounty());
     }
 
     /**Method to print the contents of the gym member database, ordered by last name, then first name.
      */
     @FXML
     public void commandPN() {
-        ta.appendText(mainData.printByName());
+        ta.appendText("\n" + mainData.printByName());
     }
 
     /**Method to print the contents of the gym member database, ordered by expiration date.*/
     @FXML
     public void commandPD() {
-        ta.appendText(mainData.printByExpirationDate());
+        ta.appendText("\n" + mainData.printByExpirationDate());
     }
 
     /**Method to print the list of members with the membership fees. */
     @FXML
     public void commandPF() {
-        ta.appendText(mainData.printByMembershipFee());
+        ta.appendText("\n" + mainData.printByMembershipFee());
     }
 
     /**Method to print the contents of fitness classes.*/
