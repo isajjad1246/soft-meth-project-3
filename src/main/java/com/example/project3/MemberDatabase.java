@@ -276,7 +276,7 @@ public class MemberDatabase {
     public String loadMembers(){
         String result = "";
         try{
-            File file = new File("gym/memberList.txt");
+            File file = new File("src/main/java/com/example/project3/memberList.txt");
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()){
                 //parse member data to mlist

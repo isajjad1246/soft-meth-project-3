@@ -92,7 +92,7 @@ public class ClassSchedule{
      * */
     public String readFile(){
         try{
-            File file = new File("gym/classSchedule.txt"); //change back
+            File file = new File("src/main/java/com/example/project3/classSchedule.txt"); //change back
 
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()){
