@@ -273,6 +273,9 @@ public class MemberDatabase {
         return result;
     }
 
+    /**
+     * Loads members from member.txt file
+     * */
     public String loadMembers(){
         String result = "";
         try{

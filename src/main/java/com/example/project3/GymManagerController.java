@@ -14,6 +14,11 @@ import java.util.Calendar;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+/**
+ * This is the controller file for Gym Manager. We are connecting our GUI buttons to its corresponding functionality.
+ * * @author Reiya Dave, Ifrah Sajjad
+ */
+
 public class GymManagerController {
     @FXML
     private Label welcomeText;
@@ -93,6 +98,13 @@ public class GymManagerController {
 //        classScheduleMenu.setItems(classDataList);
 //        membFeeMenu.setItems(membFeeList);
 //    }
+
+    /***
+     * Method that check the location of the member and sets the location, else it's invalid
+     * @return boolean
+     * @param tempLoc is the temporary location
+     * @param memb is the member being inputted
+     */
     public boolean locSetting(String tempLoc, Member memb){
         if (tempLoc.toLowerCase().equals("bridgewater")){
             memb.setLocation(Location.BRIDGEWATER);
@@ -117,45 +129,11 @@ public class GymManagerController {
         return true;
     }
 
-    public void action(){
-        //membership tab
-        /*if (hbox add is selected){
-            if (familyButton.isSelected()) {
-                //do family add method
-            }
-            else if (standardButton.isSelected()){
-                //do standard add method
-            }
-            else if (premiumButton.isSelected()){
-                //do premium add method
-            }
-            else{
-                //error message that membership type must be selected
-            }
-        }*/
-        /*else if (hbxo remove is selected){
-            if (familyButton.isSelected()) {
-                //do family add method
-            }
-            else if (standardButton.isSelected()){
-                //do standard add method
-            }
-            else if (premiumButton.isSelected()){
-                //do premium add method
-            }
-            else{
-                //error message that membership type must be selected
-            }
-        }*/
-
-        //fitnessclass tab
-
-
-
-
-    }
-
     //membership tab
+    /**
+     * Method for button conditions. This includes buttons for selecting membership type.
+     * @param event
+     * */
     @FXML
     void getAddMember(MouseEvent event){
         if (familyButton.isSelected()){
@@ -175,6 +153,11 @@ public class GymManagerController {
             ta.appendText("\nError: Membership type needs to be selected.");
         }
     }
+
+    /**
+     * Method to remove member from database from remove button.
+     * @param event
+     * */
     @FXML
     void getRemoveMember(MouseEvent event){
         //call commandR function
@@ -182,6 +165,10 @@ public class GymManagerController {
     }
 
     //fitnessclass tab
+    /**
+     * Method to add a guest, no guest, or send an error if neither button is selected.
+     * @param event
+     * */
     @FXML
     void getFcAddMember(MouseEvent event){
         if (guestButton.isSelected()){
@@ -197,6 +184,11 @@ public class GymManagerController {
             ta.appendText("\nError: Guest type needs to be selected.");
         }
     }
+
+    /**
+     * Method to remove a guest, no guest, or send an error if neither is selected.
+     * @param event
+     * */
     @FXML
     void getFcRemoveMember(MouseEvent event){
         if (guestButton.isSelected()){
@@ -375,7 +367,6 @@ public class GymManagerController {
      * Method that adds a member with the premium membership to the member database.
      * The expiration date will be set to expire one year later.
      * @return boolean
-     * @param actionEvent
      */
     @FXML
     public boolean commandAP() {
@@ -445,7 +436,6 @@ public class GymManagerController {
     /** Method to remove member from gym member database.
      * Runs through necessary checks to see if member can be added, then adds member
      * @return boolean
-     * @param actionEvent
      *
      */
     @FXML
@@ -525,9 +515,10 @@ public class GymManagerController {
         ta.appendText("\n-end of class list-");
     }
 
-    /**Method to check a member into fitness class, doing the necessary checks to ensure that member can be checked in.
+    /**
+     * Method to check a member into fitness class, doing the necessary checks to ensure that member can be checked in.
      * Checks for time conflict, date validity, and whether a member is in database or not.
-     * @param actionEvent */
+    */
     @FXML
     public void commandC() {
         Member memb = new Member();
@@ -672,6 +663,9 @@ public class GymManagerController {
 
 
     }
+
+    /** Method that does family guest check-in for a fitness class; must keep track of the remaining number of guest passes.
+     * */
     @FXML
     public void commandCG() {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
@@ -772,6 +766,10 @@ public class GymManagerController {
         }
 
     }
+
+    /** Method to delete a member from a fitness class, doing the necessary checks to ensure that member can be removed from a fitness class.
+     * Checks for date validity and class validity.
+     * */
     @FXML
     public void commandD() {
         Member memb = new Member();
@@ -880,6 +878,10 @@ public class GymManagerController {
 
 
     }
+
+    /**
+     * Method that keeps track of the remaining number of guest passes after a guest is done with a fitness class and checks out
+     * */
     @FXML
     public void commandDG() {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
@@ -957,6 +959,10 @@ public class GymManagerController {
         }
 
     }
+
+    /***
+     * Method used to load the fitness class schedule from the file classSchedule.txt to the class schedule in the software system
+     */
     @FXML
     public void commandLS() {
         String result = classSchedule.readFile();
@@ -965,6 +971,11 @@ public class GymManagerController {
         commandS();
 
     }
+
+    /**
+     * Method that loads a list of members from the file memberList.txt to the member database
+     *
+     * */
     @FXML
     public void commandLM() {
         ta.appendText(mainData.loadMembers());
