@@ -40,12 +40,12 @@
                               <Font size="8.0" />
                            </font>
                         </Label>
-                        <RadioButton layoutX="164.0" layoutY="162.0" mnemonicParsing="false" text="Standard">
+                        <RadioButton fx:id="standardButton" layoutX="164.0" layoutY="162.0" mnemonicParsing="false" text="Standard">
                            <font>
                               <Font size="8.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton layoutX="93.0" layoutY="162.0" mnemonicParsing="false" text="Family">
+                        <RadioButton fx:id="familyButton" layoutX="93.0" layoutY="162.0" mnemonicParsing="false" text="Family">
                            <font>
                               <Font size="8.0" />
                            </font>

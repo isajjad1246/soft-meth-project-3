@@ -66,6 +66,8 @@ public class GymManagerController {
     private RadioButton guestButton;
     @FXML
     private RadioButton noGuestButton;
+    @FXML
+    private HBox fcAddRemoveButton;
 
 
     /**Initial MemberDatabase object*/
@@ -98,7 +100,8 @@ public class GymManagerController {
     }
 
     public void action(){
-
+        //membership tab
+        if (familyButton.isSelected() && ad)
     }
 
     /** Method to add member to gym member database.
