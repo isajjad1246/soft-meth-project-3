@@ -112,7 +112,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <TextArea prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id= "ta" prefHeight="200.0" prefWidth="200.0" />
    </children>
 
 

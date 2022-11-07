@@ -313,12 +313,12 @@ public class MemberDatabase {
                 this.add(memb);
             }
             sc.close();
-            System.out.println("- list of members loaded- ");
+            //System.out.println("- list of members loaded- ");
             result += "- list of members loaded- \n";
             result += this.print();
         }
         catch (FileNotFoundException e){
-            System.out.println("An error occurred.");
+            //System.out.println("An error occurred.");
             result = "An error occurred.\n";
             e.printStackTrace();
         }

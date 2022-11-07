@@ -78,6 +78,10 @@ public class GymManagerController {
         return true;
     }
 
+    public void action(){
+
+    }
+
     /** Method to add member to gym member database.
      * Runs through necessary checks to see if member can be added, then adds member
      * @param actionEvent
@@ -113,16 +117,19 @@ public class GymManagerController {
 
         if (tempDob.isValid() == true) { // for dob
             if (tempDob.compareTo(today) == 1){
-                System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
+                //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
+                ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
                 return false;
             }
             if (tempDob.compareTo(bday18) == 1) {
-                System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
+                //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
+                ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
                 return false;
             }
         }
         else{
-            System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
             return false;
 
         }
@@ -142,12 +149,14 @@ public class GymManagerController {
         expire.setYear(expireYear);
         memb.setExpire(expire);
         if (mainData.add(memb) == false){
-            System.out.println(memb.getFname() + " " + memb.getLname() + " is already in the database.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " is already in the database.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " is already in the database.");
             return false;
         }
 
         //sets expiration date
-        System.out.println(memb.getFname() + " " + memb.getLname() + " added.");
+        //System.out.println(memb.getFname() + " " + memb.getLname() + " added.");
+        ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " added.");
         return true;
     }
 
@@ -184,16 +193,19 @@ public class GymManagerController {
 
         if (tempDob.isValid() == true) { // for dob
             if (tempDob.compareTo(today) == 1){
-                System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
+                //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
+                ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
                 return false;
             }
             if (tempDob.compareTo(bday18) == 1) {
-                System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
+                //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
+                ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
                 return false;
             }
         }
         else{
-            System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
             return false;
 
         }
@@ -213,12 +225,14 @@ public class GymManagerController {
         expire.setYear(expireYear);
         fam.setExpire(expire);
         if (mainData.add(fam) == false){
-            System.out.println(fam.getFname() + " " + fam.getLname() + " is already in the database.");
+            //System.out.println(fam.getFname() + " " + fam.getLname() + " is already in the database.");
+            ta.appendText("\n" + fam.getFname() + " " + fam.getLname() + " is already in the database.");
             return false;
         }
         fam.setIsFamMembership(true);
         fam.setGuestPass(1);
-        System.out.println(fam.getFname() + " " + fam.getLname() + " added.");
+        //System.out.println(fam.getFname() + " " + fam.getLname() + " added.");
+        ta.appendText("\n" + fam.getFname() + " " + fam.getLname() + " added.");
         return true;
     }
 
@@ -256,16 +270,19 @@ public class GymManagerController {
 
         if (tempDob.isValid() == true) { // for dob
             if (tempDob.compareTo(today) == 1){
-                System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
+                //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
+                ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": cannot be today or a future date!");
                 return false;
             }
             if (tempDob.compareTo(bday18) == 1) {
-                System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
+                //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
+                ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": must be 18 or older to join!");
                 return false;
             }
         }
         else{
-            System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
             return false;
 
         }
@@ -279,12 +296,14 @@ public class GymManagerController {
         prem.setExpire(expire);
         //do something to indicate that its premium membership
         if (mainData.add(prem) == false){
-            System.out.println(prem.getFname() + " " + prem.getLname() + " is already in the database.");
+            //System.out.println(prem.getFname() + " " + prem.getLname() + " is already in the database.");
+            ta.appendText("\n" + prem.getFname() + " " + prem.getLname() + " is already in the database.");
             return false;
         }
         prem.setIsPremMembership(true);
         prem.setGuestPass(3);
-        System.out.println(prem.getFname() + " " + prem.getLname() + " added.");
+        //System.out.println(prem.getFname() + " " + prem.getLname() + " added.");
+        ta.appendText("\n" + prem.getFname() + " " + prem.getLname() + " added.");
         return true;
     }
 
@@ -311,42 +330,44 @@ public class GymManagerController {
         Date tempDob = new Date(token.nextToken());
         memb.setDob(tempDob);*/
         if (mainData.remove(memb) == true) {
-            System.out.println(memb.getFname() + " " + memb.getLname() + " removed.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " removed.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " removed.");
         } else {
-            System.out.println(memb.getFname() + " " + memb.getLname() + " is not in database.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " is not in database.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " is not in database.");
         }
         return true;
     }
     /**Method to print the contents of the gym member database.*/
     @FXML
     public void commandP() {
-        mainData.print();
+        ta.appendText(mainData.print());
     }
 
     /**Method to print the contents of the gym member database, ordered by county and zipcode.
      */
     @FXML
     public void commandPC() {
-        mainData.printByCounty();
+        ta.appendText(mainData.printByCounty());
     }
 
     /**Method to print the contents of the gym member database, ordered by last name, then first name.
      */
     @FXML
     public void commandPN() {
-        mainData.printByName();
+        ta.appendText(mainData.printByName());
     }
 
     /**Method to print the contents of the gym member database, ordered by expiration date.*/
     @FXML
     public void commandPD() {
-        mainData.printByExpirationDate();
+        ta.appendText(mainData.printByExpirationDate());
     }
 
     /**Method to print the list of members with the membership fees. */
     @FXML
     public void commandPF() {
-        mainData.printByMembershipFee();
+        ta.appendText(mainData.printByMembershipFee());
     }
 
     /**Method to print the contents of fitness classes.*/
@@ -354,16 +375,19 @@ public class GymManagerController {
     public void commandS() {
         //check if class schedule is empty
         if (classSchedule.getNumClasses() == 0) {
-            System.out.println("Fitness Class schedule is empty.");
+            //System.out.println("Fitness Class schedule is empty.");
+            ta.appendText("Fitness Class schedule is empty.");
             return;
         }
         System.out.println("-Fitness Classes-");
         for (int i = 0; i < classSchedule.getNumClasses(); i++) {
-            System.out.println(classSchedule.getFitnessClass()[i].toClassString());
-            classSchedule.getFitnessClass()[i].printClass();
+            //System.out.println(classSchedule.getFitnessClass()[i].toClassString());
+            ta.appendText("\n" + classSchedule.getFitnessClass()[i].toClassString());
+            ta.appendText("\n" + classSchedule.getFitnessClass()[i].printClass());
 
         }
-        System.out.println("-end of class list-");
+        //System.out.println("-end of class list-");
+        ta.appendText("\n-end of class list-");
     }
 
     /**Method to check a member into fitness class, doing the necessary checks to ensure that member can be checked in.
@@ -419,26 +443,31 @@ public class GymManagerController {
         //for checking in the member after all of the checks
         int index = classSchedule.find(tempClass);
         if (index == -1){
-            System.out.println(className + " by " + instructor + " does not exist at " + classLoc);
+            //System.out.println(className + " by " + instructor + " does not exist at " + classLoc);
+            ta.appendText("\n" + className + " by " + instructor + " does not exist at " + classLoc);
             return;
         }
         else if (index == -2){
             System.out.println(className + " - class does not exist.");
+            ta.appendText("\n" + className + " - class does not exist.");
             return;
         }
         else if (index == -3){
-            System.out.println(instructor + " - instructor does not exist.");
+            //System.out.println(instructor + " - instructor does not exist.");
+            ta.appendText("\n" + instructor + " - instructor does not exist.");
             return;
         }
         else if (index == -4){
-            System.out.println(classLoc + " - invalid location.");
+            //System.out.println(classLoc + " - invalid location.");
+            ta.appendText("\n" + classLoc + " - invalid location.");
             return;
         }
 
 
         //checks if the date of birth is invalid
         if(tempDob.isValid() != true){
-            System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + " : invalid calendar date!");
+            //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + " : invalid calendar date!");
+            ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + " : invalid calendar date!");
             return;
         }
 
@@ -458,19 +487,23 @@ public class GymManagerController {
             }
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
             return;
         }
 
         //checks if expiration date has already passed
         if (memb.getExpire().compareTo(today) == -1){
-            System.out.println(memb.getFname() + " " + memb.getLname() + " " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() +" membership expired.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() +" membership expired.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() +" membership expired.");
             return;
         }
 
         if (memb instanceof Family == false && memb instanceof Premium == false){
             if (!(memb.getLocation().getTownship().equals(tempClass.getClassLocation().getTownship()))){
-                System.out.println(memb.getFname() + " " + memb.getLname() + " checking in " + tempClass.getClassLocation().toString()
+                //System.out.println(memb.getFname() + " " + memb.getLname() + " checking in " + tempClass.getClassLocation().toString()
+                        //+ " - standard membership restriction.");
+                ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " checking in " + tempClass.getClassLocation().toString()
                         + " - standard membership restriction.");
                 return;
             }
@@ -484,17 +517,20 @@ public class GymManagerController {
             for (int i = 0; i < classSchedule.getNumClasses(); i++){
                 if (tempHr == classSchedule.getFitnessClass()[i].getClassTime().getHour() && tempMin == classSchedule.getFitnessClass()[i].getClassTime().getMin()){
                     if (classSchedule.getFitnessClass()[i].find(memb) != -1){
-                        System.out.println("Time conflict - " + classSchedule.getFitnessClass()[i].toClassString());
+                        //System.out.println("Time conflict - " + classSchedule.getFitnessClass()[i].toClassString());
+                        ta.appendText("\nTime conflict - " + classSchedule.getFitnessClass()[i].toClassString());
                         return;
                     }
                 }
             }
             tempClass.addMember(memb);
-            System.out.println(memb.getFname() + " " + memb.getLname() + " checked in " + tempClass.toClassString());
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " checked in " + tempClass.toClassString());
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " checked in " + tempClass.toClassString());
             return;
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() +  " has already checked in " + className + ".");
+            //System.out.println(memb.getFname() + " " + memb.getLname() +  " has already checked in " + className + ".");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() +  " has already checked in " + className + ".");
             return;
         }
 
@@ -536,7 +572,8 @@ public class GymManagerController {
             tempClass.setClassLocation(Location.FRANKLIN);
         }
         else{
-            System.out.println(classLoc + ": invalid location!");
+            //System.out.println(classLoc + ": invalid location!");
+            ta.appendText("\n" + classLoc + ": invalid location!");
             return;
         }
         memb.setFname(fcFirstName.getText());
@@ -558,19 +595,23 @@ public class GymManagerController {
                 memb = (Premium) mainData.pubFind(memb);
             }
             else{
-                System.out.println("Standard membership - guest check-in is not allowed.");
+                //System.out.println("Standard membership - guest check-in is not allowed.");
+                ta.appendText("\nStandard membership - guest check-in is not allowed.");
                 return;
 
             }
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            ta.appendText(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
             return;
         }
 
         //check class location with members location
         if (!memb.getLocation().getTownship().equals(tempClass.getClassLocation().getTownship())){
-            System.out.println(memb.getFname() + " " + memb.getLname() + " Guest checking in " + tempClass.getClassLocation().toString()
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " Guest checking in " + tempClass.getClassLocation().toString()
+                    //+ " - guest location restriction.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " Guest checking in " + tempClass.getClassLocation().toString()
                     + " - guest location restriction.");
             return;
         }
@@ -584,12 +625,14 @@ public class GymManagerController {
         if (memb.getGuestPass() > 0){
             tempClass.addGuest(memb);
             memb.setGuestPass(memb.getGuestPass()-1);
-            System.out.println(memb.getFname() + " " + memb.getLname() + " (guest) checked in " + tempClass.toClassString());
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " (guest) checked in " + tempClass.toClassString());
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " (guest) checked in " + tempClass.toClassString());
             tempClass.printClass();
             return;
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " ran out of guest passes");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " ran out of guest passes");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " ran out of guest passes");
             return;
         }
 
@@ -627,7 +670,8 @@ public class GymManagerController {
             tempClass.setClassLocation(Location.FRANKLIN);
         }
         else{
-            System.out.println(classLoc + ": invalid location!");
+            //System.out.println(classLoc + ": invalid location!");
+            ta.appendText("\n" + classLoc + ": invalid location!");
             return;
         }
         memb.setFname(fcFirstName.getText());
@@ -642,7 +686,8 @@ public class GymManagerController {
         //checks validity of dob
         if (memb.getDob().isValid() == false){
             //error message that dob is invalid
-            System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            //System.out.println("DOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
+            ta.appendText("\nDOB " + tempDob.getMonth() + "/" + tempDob.getDay() + "/" + tempDob.getYear() + ": invalid calendar date!");
             return;
         }
         //check if member is in mList
@@ -658,26 +703,31 @@ public class GymManagerController {
             }
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
             return;
         }
 
         //search for class in classschedule- if not there then error message
         int index = classSchedule.find(tempClass);
         if (index == -1){
-            System.out.println(className + " by " + instructor + " does not exist at " + classLoc);
+            //System.out.println(className + " by " + instructor + " does not exist at " + classLoc);
+            ta.appendText("\n" + className + " by " + instructor + " does not exist at " + classLoc);
             return;
         }
         else if (index == -2){
-            System.out.println(className + " - class does not exist.");
+            //System.out.println(className + " - class does not exist.");
+            ta.appendText("\n" + className + " - class does not exist.");
             return;
         }
         else if (index == -3){
-            System.out.println(instructor + " - instructor does not exist.");
+            //System.out.println(instructor + " - instructor does not exist.");
+            ta.appendText("\n" + instructor + " - instructor does not exist.");
             return;
         }
         else if (index == -4){
-            System.out.println(classLoc + " - invalid location.");
+            //System.out.println(classLoc + " - invalid location.");
+            ta.appendText("\n" + classLoc + " - invalid location.");
             return;
         }
         tempClass = classSchedule.getFitnessClass()[index];
@@ -685,10 +735,12 @@ public class GymManagerController {
         //else, drop person from class
 
         if (tempClass.removeMember(memb) == false){
-            System.out.println(memb.getFname() + " " + memb.getLname() + " did not check in.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " did not check in.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " did not check in.");
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " is done with class.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " is done with class.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " is done with class.");
         }
 
 
@@ -725,7 +777,8 @@ public class GymManagerController {
             tempClass.setClassLocation(Location.FRANKLIN);
         }
         else{
-            System.out.println(classLoc + ": invalid location!");
+            //System.out.println(classLoc + ": invalid location!");
+            ta.appendText("\n" + classLoc + ": invalid location!");
             return;
         }
         memb.setFname(fcFirstName.getText());
@@ -749,18 +802,21 @@ public class GymManagerController {
             }
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
             return;
         }
 
         int index = classSchedule.find(tempClass);
         tempClass = classSchedule.getFitnessClass()[index];
         if (tempClass.removeGuest(memb) == false){
-            System.out.println("Guest not checked in.");
+            //System.out.println("Guest not checked in.");
+            ta.appendText("\nGuest not checked in.");
             return;
         }
         else{
-            System.out.println(memb.getFname() + " " + memb.getLname() + " Guest done with the class.");
+            //System.out.println(memb.getFname() + " " + memb.getLname() + " Guest done with the class.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " Guest done with the class.");
             memb.setGuestPass(memb.getGuestPass()+1);
             return;
         }
@@ -776,7 +832,7 @@ public class GymManagerController {
     }
     @FXML
     public void commandLM(ActionEvent actionEvent) {
-        mainData.loadMembers();
+        ta.appendText(mainData.loadMembers());
 
         /*try{
             File file = new File("gym/memberList.txt");
