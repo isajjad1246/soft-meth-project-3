@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Calendar;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -227,13 +228,25 @@ public class GymManagerController {
 
         //insert try-catch here for reading all the inputs, catch if one of them cannot be read
         //change from token to reading text input of each thing
-        memb.setFname(firstName.getText());
-        memb.setLname(lastName.getText());
 
+            //memb.setFname(firstName.getText());
+            //memb.setLname(lastName.getText());
+            Date tempDob = new Date();
+            try {
+                memb.setFname(firstName.getText());
+                memb.setLname(lastName.getText());
+                tempDob = new Date(membDob.getText());
+                memb.setDob(tempDob);
+                String tempLoc = membLoc.getText();
+            }
+            catch (NoSuchElementException e){
+                ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+                return false;
+            }
 
-        Date tempDob = new Date(membDob.getText());
-        memb.setDob(tempDob);
-        String tempLoc = membLoc.getText();
+            //memb.setDob(tempDob);
+            String tempLoc = membLoc.getText();
+
 
         Date bday18 = new Date("10/01/2004");
         /*StringTokenizer token = new StringTokenizer(input, " ");
@@ -304,12 +317,21 @@ public class GymManagerController {
     public boolean commandAF() {
         Family fam = new Family();
         Date today = new Date();
+        Date tempDob = new Date();
+        String tempLoc = "";
 
-        fam.setFname(firstName.getText());
-        fam.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
-        fam.setDob(tempDob);
-        String tempLoc = membLoc.getText();
+        try{
+            fam.setFname(firstName.getText());
+            fam.setLname(lastName.getText());
+            tempDob = new Date(membDob.getText());
+            fam.setDob(tempDob);
+            tempLoc = membLoc.getText();
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return false;
+        }
+
 
         Date bday18 = new Date("10/01/2004");
         /*StringTokenizer token = new StringTokenizer(input, " ");
@@ -381,12 +403,20 @@ public class GymManagerController {
     public boolean commandAP() {
         Premium prem = new Premium();
         Date today = new Date();
+        Date tempDob = new Date();
+        String tempLoc = "";
 
-        prem.setFname(firstName.getText());
-        prem.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
-        prem.setDob(tempDob);
-        String tempLoc = membLoc.getText();
+        try {
+            prem.setFname(firstName.getText());
+            prem.setLname(lastName.getText());
+            tempDob = new Date(membDob.getText());
+            prem.setDob(tempDob);
+            tempLoc = membLoc.getText();
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return false;
+        }
 
         Date bday18 = new Date("10/01/2004");
         /*StringTokenizer token = new StringTokenizer(input, " ");
@@ -451,11 +481,18 @@ public class GymManagerController {
     @FXML
     public boolean commandR() {
         Member memb = new Member();
+        Date tempDob = new Date();
 
-        memb.setFname(firstName.getText());
-        memb.setLname(lastName.getText());
-        Date tempDob = new Date(membDob.getText());
-        memb.setDob(tempDob);
+        try {
+            memb.setFname(firstName.getText());
+            memb.setLname(lastName.getText());
+            tempDob = new Date(membDob.getText());
+            memb.setDob(tempDob);
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return false;
+        }
 
         /*StringTokenizer token = new StringTokenizer(input, " ");
 
@@ -533,17 +570,26 @@ public class GymManagerController {
         Member memb = new Member();
         FitnessClass tempClass = new FitnessClass();
         Date today = new Date();
+        Date tempDob = new Date();
+        String className = "";
+        String instructor = "";
+        String classLoc = "";
 
-        String className = classname.getText();
-        String instructor = classInstructor.getText();
-        String classLoc = classLocation.getText();
+        try {
+            className = classname.getText();
+            instructor = classInstructor.getText();
+            classLoc = classLocation.getText();
+            memb.setFname(fcFirstName.getText());
+            memb.setLname(fcLastName.getText());
+            tempDob = new Date(fcMembDob.getText());
+            memb.setDob(tempDob);
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return;
+        }
 
-        /*StringTokenizer token = new StringTokenizer(input, " ");
-        token.nextToken();
-        //C className Instructor Location Fname Lname DOB
-        String className = token.nextToken();
-        String instructor = token.nextToken();
-        String classLoc = token.nextToken();*/
+
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -566,14 +612,11 @@ public class GymManagerController {
             System.out.println(classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(fcFirstName.getText());
+        /*memb.setFname(fcFirstName.getText());
         memb.setLname(fcLastName.getText());
         Date tempDob = new Date(fcMembDob.getText());
-        memb.setDob(tempDob);
-        /*memb.setFname(token.nextToken());
-        memb.setLname(token.nextToken());
-        Date tempDob = new Date(token.nextToken());
         memb.setDob(tempDob);*/
+
 
         //for checking in the member after all of the checks
         int index = classSchedule.find(tempClass);
@@ -677,16 +720,27 @@ public class GymManagerController {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
         FitnessClass tempClass = new FitnessClass();
         Date today = new Date();
+        Date tempDob = new Date();
+        String className = "";
+        String instructor = "";
+        String classLoc = "";
 
-        String className = classname.getText();
-        String instructor = classInstructor.getText();
-        String classLoc = classLocation.getText();
+        try {
+            className = classname.getText();
+            instructor = classInstructor.getText();
+            classLoc = classLocation.getText();
+            memb.setFname(fcFirstName.getText());
+            memb.setLname(fcLastName.getText());
+            tempDob = new Date(fcMembDob.getText());
+            memb.setDob(tempDob);
 
-        /*StringTokenizer token = new StringTokenizer(input, " ");
-        token.nextToken();
-        String className = token.nextToken();
-        String instructor = token.nextToken();
-        String classLoc = token.nextToken();*/
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return;
+        }
+
+
 
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
@@ -711,14 +765,10 @@ public class GymManagerController {
             ta.appendText("\n" + classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(fcFirstName.getText());
+        /*memb.setFname(fcFirstName.getText());
         memb.setLname(fcLastName.getText());
-        Date tempDob = new Date(fcMembDob.getText());
-        memb.setDob(tempDob);
-        /*memb.setFname(token.nextToken());
-        memb.setLname(token.nextToken());
-        Date tempDob = new Date(token.nextToken());
-        memb.setDob(tempDob);*/
+        Date tempDob = new Date(fcMembDob.getText());*/
+
 
 
         //check if member is in mList
@@ -738,7 +788,7 @@ public class GymManagerController {
         }
         else{
             //System.out.println(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
-            ta.appendText(memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
+            ta.appendText("\n" + memb.getFname() + " " + memb.getLname() + " " + memb.getDob().getMonth() + "/" + memb.getDob().getDay() + "/" + memb.getDob().getYear() + " is not in database.");
             return;
         }
 
@@ -776,16 +826,25 @@ public class GymManagerController {
     public void commandD() {
         Member memb = new Member();
         FitnessClass tempClass = new FitnessClass();
+        Date tempDob = new Date();
+        String className = "";
+        String instructor = "";
+        String classLoc = "";
 
-        String className = classname.getText();
-        String instructor = classInstructor.getText();
-        String classLoc = classLocation.getText();
+        try {
+            className = classname.getText();
+            instructor = classInstructor.getText();
+            classLoc = classLocation.getText();
+            memb.setFname(fcFirstName.getText());
+            memb.setLname(fcLastName.getText());
+            tempDob = new Date(fcMembDob.getText());
+            memb.setDob(tempDob);
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return;
+        }
 
-        /*StringTokenizer token = new StringTokenizer(input, " ");
-        token.nextToken();
-        String className = token.nextToken();
-        String instructor = token.nextToken();
-        String classLoc = token.nextToken();*/
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -809,14 +868,11 @@ public class GymManagerController {
             ta.appendText("\n" + classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(fcFirstName.getText());
+        /*memb.setFname(fcFirstName.getText());
         memb.setLname(fcLastName.getText());
         Date tempDob = new Date(fcMembDob.getText());
-        memb.setDob(tempDob);
-        /*memb.setFname(token.nextToken());
-        memb.setLname(token.nextToken());
-        Date tempDob = new Date(token.nextToken());
         memb.setDob(tempDob);*/
+
 
         //checks validity of dob
         if (memb.getDob().isValid() == false){
@@ -884,15 +940,25 @@ public class GymManagerController {
     public void commandDG() {
         Member memb = new Member(); //since family and premium variables have instance variables, check the instance variables of those guest passes
         FitnessClass tempClass = new FitnessClass();
+        Date tempDob = new Date();
+        String className = "";
+        String instructor = "";
+        String classLoc = "";
 
-        String className = classname.getText();
-        String instructor = classInstructor.getText();
-        String classLoc = classLocation.getText();
-        /*StringTokenizer token = new StringTokenizer(input, " ");
-        token.nextToken();
-        String className = token.nextToken();
-        String instructor = token.nextToken();
-        String classLoc = token.nextToken();*/
+        try {
+            className = classname.getText();
+            instructor = classInstructor.getText();
+            classLoc = classLocation.getText();
+            memb.setFname(fcFirstName.getText());
+            memb.setLname(fcLastName.getText());
+            tempDob = new Date(fcMembDob.getText());
+            memb.setDob(tempDob);
+        }
+        catch (NoSuchElementException e){
+            ta.appendText("\nError: Please check that you have filled all boxes and correct date format (mm/dd/yyyy.)");
+            return;
+        }
+
         className = className.substring(0, 1).toUpperCase() + className.substring(1);
         tempClass.setClassName(className);
         tempClass.setInstructor(instructor);
@@ -916,14 +982,11 @@ public class GymManagerController {
             ta.appendText("\n" + classLoc + ": invalid location!");
             return;
         }
-        memb.setFname(fcFirstName.getText());
+        /*memb.setFname(fcFirstName.getText());
         memb.setLname(fcLastName.getText());
         Date tempDob = new Date(fcMembDob.getText());
-        memb.setDob(tempDob);
-        /*memb.setFname(token.nextToken());
-        memb.setLname(token.nextToken());
-        Date tempDob = new Date(token.nextToken());
         memb.setDob(tempDob);*/
+
 
         if (mainData.pubFind(memb) != null){
             if (mainData.pubFind(memb) instanceof Family && mainData.pubFind(memb) instanceof Premium == false){
@@ -969,35 +1032,6 @@ public class GymManagerController {
     public void commandLM() {
         ta.appendText(mainData.loadMembers());
 
-        /*try{
-            File file = new File("gym/memberList.txt");
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()){
-                //parse member data to mlist
-                String data = sc.nextLine();
-                Member memb = new Member();
-                StringTokenizer token = new StringTokenizer(data, " ");
-                memb.setFname(token.nextToken());
-                memb.setLname(token.nextToken());
-                Date tempDob = new Date(token.nextToken());
-                memb.setDob(tempDob);
-                Date tempExp = new Date(token.nextToken());
-                memb.setExpire(tempExp);
-                String tempLoc = token.nextToken();
-                if (locSetting(tempLoc, memb) == false){
-                    return;
-                }
-                mainData.add(memb);
-
-            }
-            sc.close();
-            System.out.println("- list of members loaded- ");
-            mainData.print();
-        }
-        catch (FileNotFoundException e){
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }*/
     }
 
 
